@@ -6,13 +6,13 @@
 //Klasa pochodna. Wykorzystuję zmienne kalsy Bazowej, które zmieniane są w konstruktorze
 //Posiada metode rysowania odwołująca się do przekazywania obiektu referencyjnie(Funkcja SFML)
 
-class Ball : public Bazowa {
+class Ofiara : public Bazowa {
 
 public:
-        Ball(float t_X, float t_Y, float _ballRadius, float _ballVelocity);
+        Ofiara(float t_X, float t_Y, float _ballRadius, float _ballVelocity);
 
-        Ball()=delete;
-        ~Ball()=default;
+        Ofiara()=delete;
+        ~Ofiara()=default;
 
         void update();
 
@@ -20,8 +20,8 @@ public:
 
 
 private:
-        
+        Clock clock;
+
         void draw(RenderTarget& target, RenderStates state) const override; //rysowanie kulki
 
 };
-
