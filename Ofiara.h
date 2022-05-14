@@ -16,6 +16,10 @@ public:
 
         void update();
 
+        bool isDestroyed();
+        void destroy();
+
+        bool destroyed{false};
 
 
 

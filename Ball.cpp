@@ -24,6 +24,11 @@ void Ball::update(){
     
 }
 
+void Ball::kill(int i){
+    if(i==1) score=score+50;
+    else if(i==2) score=score+250;
+}
+
 void Ball::draw(RenderTarget& target,RenderStates state) const
 {
     target.draw(this->shape,state); //Metoda rysowania 

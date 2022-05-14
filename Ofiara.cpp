@@ -28,13 +28,23 @@ void Ofiara::update(){
    if(timeClock > timeChange)
    {
        srand(time(NULL));
-       float _x=rand()%8-4,_y=rand()%8-4;
+       float _x=rand()%10-5,_y=rand()%10-5;
 
        velocity.x=velocity.x+_x;
        velocity.y=velocity.y+_y;
        clock.restart();
    }
    
+}
+
+bool Ofiara::isDestroyed()
+{
+    return this->destroyed;
+}
+
+void Ofiara::destroy()
+{
+    this->destroyed=true;
 }
 
 void Ofiara::draw(RenderTarget& target,RenderStates state) const

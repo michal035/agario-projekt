@@ -15,10 +15,12 @@ public:
         ~Ball()=default;
 
         void update();
+        void kill(int i);
 
 
 
 
+        unsigned int score{100};
 private:
         
         void draw(RenderTarget& target, RenderStates state) const override; //rysowanie kulki
