@@ -17,10 +17,18 @@ public:
         void update();
         void kill(int i);
 
+        void setMyText();
+
 
 
 
         unsigned int score{100};
+        Font font;
+        Text gameLose;
+        Text gameWin;
+        Text scoreTxt;
+
+
 private:
         
         void draw(RenderTarget& target, RenderStates state) const override; //rysowanie kulki

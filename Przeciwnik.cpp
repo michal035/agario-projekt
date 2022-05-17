@@ -17,6 +17,7 @@ Przeciwnik::Przeciwnik(float t_X, float t_Y, float _ballRadius, float _ballVeloc
     shape.setOrigin(this->ballRadius,this->ballRadius);//Ustawiamy pozycje na podstawie wczesniejszej funkjci
 }
 
+
 void Przeciwnik::update(){
     shape.move(this->velocity);//Metoda wbudowana w SFML do poruszania obiektów
     Bazowa::update();
@@ -24,9 +25,10 @@ void Przeciwnik::update(){
     //Wykorzystanie klasy czasu, aby przeciwnicy zachowywali losowość na podstawie czasu.
    Time timeClock=clock.getElapsedTime();
    Time timeChange=seconds(2.f);
+   
    if(timeClock > timeChange)
    {
-       srand(time(NULL));
+       
        float _x=rand()%8-4,_y=rand()%6-3;
 
        velocity.x=velocity.x+_x;

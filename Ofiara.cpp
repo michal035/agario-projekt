@@ -25,9 +25,9 @@ void Ofiara::update(){
     //Wykorzystanie klasy czasu, aby przeciwnicy zachowywali losowość na podstawie czasu.
    Time timeClock=clock.getElapsedTime();
    Time timeChange=seconds(2.3f);
+   srand(time(NULL));
    if(timeClock > timeChange)
    {
-       srand(time(NULL));
        float _x=rand()%10-5,_y=rand()%10-5;
 
        velocity.x=velocity.x+_x;
