@@ -9,6 +9,7 @@
 #include <time.h>
 
 
+
 using namespace sf;
 
 //Klasa Bazowa w której są zmeinne odnoszące się do 
@@ -23,7 +24,6 @@ class Bazowa: public sf::Drawable{
 
         Vector2f velocity{ballVelocity,ballVelocity}; //Piłka przemieszcza się w 
                                                       //obu płaszczyznach z  nadaną wartością
-
 
 
 

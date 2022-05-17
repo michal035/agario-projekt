@@ -16,8 +16,7 @@ public:
         ~Przeciwnik()=default;
 
         void update();
-
-
+;
 
 
 private:
