@@ -1,5 +1,7 @@
 #include "Ball.h"
 
+//Funkcja zmieniająca liczby w ciąg znaków.
+//Wykorzystywana do wyświetlania bierzącego wyniku
 String toString(int integer)
 {
     char numstr[4];
@@ -9,7 +11,7 @@ String toString(int integer)
 
 
 
-
+//Konstruktor
 Ball::Ball(float t_X, float t_Y, float _ballRadius, float _ballVelocity)
 {
     ballRadius=_ballRadius;
@@ -26,6 +28,7 @@ Ball::Ball(float t_X, float t_Y, float _ballRadius, float _ballVelocity)
 
 }
 
+//Metoda ustawiająca teskty po wygranej i przegranej oraz licznik puntków
 void Ball::setMyText()
 {
     font.loadFromFile("Terserah.ttf");
@@ -53,20 +56,26 @@ void Ball::setMyText()
     
 }
 
+//Metoda, wywoływana co klatkę gry aby zmieniać prędkość oraz odbijać obiekt od ścian
 void Ball::update(){
-    shape.move(this->velocity);//Metoda wbudowana w SFML do poruszania obiektów
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) shape.move(-3.f, 0.f);
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) shape.move(3.f, 0.f);
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) shape.move(0.f,-3.f);
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) shape.move(0.f,3.f);
+    
     Bazowa::update();
     scoreTxt.setString(toString(score));
     
 }
 
-
+//Metoda która dodaje punkty do zmiennej ,,score" na podstawie której wygrywamy lub nie 
 void Ball::kill(int i){
     if(i==1) score=score+50;
     else if(i==2) score=score+250;
     else score=0;
 }
 
+//Metoda przekazująca realny obiekt aby rysować go na ekranie
 void Ball::draw(RenderTarget& target,RenderStates state) const
 {
     target.draw(this->shape,state); //Metoda rysowania 

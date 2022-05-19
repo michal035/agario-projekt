@@ -63,14 +63,15 @@ int main()
 {
    srand(time(NULL));
 
+    //Zmienne do losowania wektorów prędkości
     int _x,_y;
     
-    Ball ball(512,384,10.f,3.f);
-    Przeciwnik przeciwnik(300,200,30.f,3.f);
+    //Tworzenie obiektów poprzez klasy
+    Ball ball(512,384,10.f,0.f);
+    Przeciwnik przeciwnik(300,200,30.f,1.f);
     Przeciwnik przeciwnikV2(600,100,30.f,3.f);
-    //Punkty punkt(300,200,30.f);
-    //Ofiara ofiara(0,0,30.f,3.f);
 
+    //Ustawienie tekstu 
     ball.setMyText();
 
     //,,Tablica" obiektów danego typu
@@ -116,18 +117,17 @@ int main()
                 break;
             }
 
-
+            //Aktualizujemy stan obiektu
             ball.update();
             przeciwnik.update();
             przeciwnikV2.update();
-            //ofiara.update();
-            
 
+            //Rysujemy obiektu na ekranie
             window.draw(ball);
             window.draw(przeciwnik);
             window.draw(przeciwnikV2);
-            //window.draw(punkt);
-           // window.draw(ofiara);
+
+            //Rysujemy licznik w prawym górnym rogu
            window.draw(ball.scoreTxt);
 
 // Rysujemy obiekty funkcja sf::draw() w pętli przechodzącej przez wszystkie obiekty naszego vectora
@@ -144,8 +144,7 @@ int main()
 
 
 
-            //collisionTestPoints(ball,punkty);
-            //collisionTestHunted(ball,ofiara);
+            //Sprawdzamy kolizje pomiędzy poszczególnymi obiektami
             collisionTestOponent(ball,przeciwnik);
             collisionTestOponent(ball,przeciwnikV2);
 //Sprawdzamy czy jakikolwiek element w naszym vectorze został skolizowany
@@ -161,8 +160,10 @@ int main()
             auto iteratorHunted=remove_if(begin(ofiara), end(ofiara), [](Ofiara& ofiara){return ofiara.isDestroyed();});
             ofiara.erase(iteratorHunted,end(ofiara));
 
-            
-//Sprawdzamy czy gracz wygrał bądź przegrał
+
+        window.display(); //wywoływanie obiektów 
+
+        //Sprawdzamy czy gracz wygrał bądź przegrał
 //Wykorzystujemy do tego pętle gry, która nie korzysta z window.clear(), aby został powidok rozgrywki
         if(ball.score==0){
             while(true){
@@ -195,8 +196,6 @@ int main()
                         }
             }
         }
-
-        window.display(); //wywoływanie obiektów 
      
     }
 
