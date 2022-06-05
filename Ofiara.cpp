@@ -2,7 +2,7 @@
 
 
 
-
+//Kostruktor
 Ofiara::Ofiara(float t_X, float t_Y, float _ballRadius, float _ballVelocity)
 {
     ballRadius=_ballRadius;
@@ -18,6 +18,7 @@ Ofiara::Ofiara(float t_X, float t_Y, float _ballRadius, float _ballVelocity)
     shape.setOrigin(this->ballRadius,this->ballRadius);//Ustawiamy pozycje na podstawie wczesniejszej funkjci
 }
 
+//Metoda porusza obiektem oraz zależnie od czasu realnego zmienia wektor jego poruszania losowo
 void Ofiara::update(){
     shape.move(this->velocity);//Metoda wbudowana w SFML do poruszania obiektów
     Bazowa::update();
@@ -37,16 +38,19 @@ void Ofiara::update(){
    
 }
 
+//Metoda zwraca fakt że obiekt jest zniszczony
 bool Ofiara::isDestroyed()
 {
     return this->destroyed;
 }
 
+//Metoda niszcząca obiekt
 void Ofiara::destroy()
 {
     this->destroyed=true;
 }
 
+//Metoda rysuje obiekt na podawie referencji
 void Ofiara::draw(RenderTarget& target,RenderStates state) const
 {
     target.draw(this->shape,state); //Metoda rysowania 

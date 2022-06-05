@@ -1,7 +1,7 @@
 #include "Przeciwnik.h"
 
 
-
+//Konstruktor
 Przeciwnik::Przeciwnik(float t_X, float t_Y, float _ballRadius, float _ballVelocity)
 {
     ballRadius=_ballRadius;
@@ -17,7 +17,7 @@ Przeciwnik::Przeciwnik(float t_X, float t_Y, float _ballRadius, float _ballVeloc
     shape.setOrigin(this->ballRadius,this->ballRadius);//Ustawiamy pozycje na podstawie wczesniejszej funkjci
 }
 
-
+//Metoda porusza obiektem oraz zależnie od czasu realnego zmienia wektor jego poruszania losowo
 void Przeciwnik::update(){
     shape.move(this->velocity);//Metoda wbudowana w SFML do poruszania obiektów
     Bazowa::update();
@@ -38,6 +38,7 @@ void Przeciwnik::update(){
     
 }
 
+//Metoda rysuje obiekt na podawie referencji
 void Przeciwnik::draw(RenderTarget& target,RenderStates state) const
 {
     target.draw(this->shape,state); //Metoda rysowania 
