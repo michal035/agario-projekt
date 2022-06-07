@@ -4,7 +4,7 @@ CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 BIN = bin
 
 LIBRARIES	:= -lsfml-graphics -lsfml-window -lsfml-system
-EXECUTABLE	:= main
+EXECUTABLE	:= main.exe
 
 HEADERS = Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 SRC = Ball.cpp Bazowa.cpp main.cpp Punkty.cpp Przeciwnik.cpp Ofira.cpp
