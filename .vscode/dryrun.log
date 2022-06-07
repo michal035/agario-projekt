@@ -1,0 +1,11 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/mati/Dokumenty/Joker/agario-projekt'
+g++ -c Ball.cpp -o Ball.o -Wall -Wextra -std=c++17 -ggdb
+g++ -c Bazowa.cpp -o Bazowa.o -Wall -Wextra -std=c++17 -ggdb
+g++ -c main.cpp -o main.o -Wall -Wextra -std=c++17 -ggdb
+g++ -c Punkty.cpp -o Punkty.o -Wall -Wextra -std=c++17 -ggdb
+g++ -c Przeciwnik.cpp -o Przeciwnik.o -Wall -Wextra -std=c++17 -ggdb
+g++ -c Ofiara.cpp -o Ofiara.o -Wall -Wextra -std=c++17 -ggdb
+g++ -Wall -Wextra -std=c++17 -ggdb Ball.o Bazowa.o main.o Punkty.o Przeciwnik.o Ofiara.o -o main -lsfml-graphics -lsfml-window -lsfml-system
+make: Leaving directory '/home/mati/Dokumenty/Joker/agario-projekt'
+ 
